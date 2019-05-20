@@ -38,7 +38,8 @@ def GHM_weight(predict, target, valid_mask, bins=10, alpha=0.75,
         _shape = predict.get_shape().as_list()
         assert len(_shape) == 2
         _init_statistics = (_shape[0] * _shape[1]) / bins
-        statistics = tf.get_variable(name='statistics', shape=[bins], dtype=dtype,
+        statistics = tf.get_variable(
+            name='statistics', shape=[bins], dtype=dtype, trainable=False,
             initializer=tf.constant_initializer(_init_statistics, dtype=dtype))
 
         _b_valid = valid_mask > 0
