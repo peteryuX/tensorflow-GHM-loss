@@ -1,4 +1,4 @@
-"""TF version for grandient harmonized weights"""
+"""TF version for gradient harmonized weights"""
 
 import numpy as np
 import tensorflow as tf
@@ -6,7 +6,7 @@ import tensorflow as tf
 
 def get_ghm_weight(predict, target, valid_mask, bins=10, alpha=0.75,
                dtype=tf.float32, name='GHM_weight'):
-    """ Get Grandient Harmonized Weights.
+    """ Get gradient Harmonized Weights.
     This is an implementation of the GHM ghm_weights described
     in https://arxiv.org/abs/1811.05181.
 
@@ -46,19 +46,19 @@ def get_ghm_weight(predict, target, valid_mask, bins=10, alpha=0.75,
         _b_valid = valid_mask > 0
         total = tf.maximum(tf.reduce_sum(tf.cast(_b_valid, dtype=dtype)), 1)
 
-        grandients = tf.abs(predict - target)
+        gradients = tf.abs(predict - target)
 
         # Calculate new statics and new weights
         w_list = []
         s_list = []
         for i in range(bins):
             inds = (
-                grandients >= edges[i]) & (grandients < edges[i + 1]) & _b_valid
+                gradients >= edges[i]) & (gradients < edges[i + 1]) & _b_valid
             # number of examples lying in bin, same as R in paper.
             num_in_bin = tf.reduce_sum(tf.cast(inds, dtype=dtype))
             statistics_i = alpha * statistics[i] + (1 - alpha) * num_in_bin
-            grandient_density = statistics_i * bins
-            update_weights = total / grandient_density
+            gradient_density = statistics_i * bins
+            update_weights = total / gradient_density
             weights_i = tf.where(
                 inds,
                 x=tf.ones_like(predict) * update_weights,
