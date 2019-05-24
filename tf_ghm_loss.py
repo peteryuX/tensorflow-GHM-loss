@@ -70,7 +70,7 @@ def get_ghm_weight(predict, target, valid_mask, bins=10, alpha=0.75,
         new_statistics = tf.stack(s_list)
 
         # Avoid the tiny value in statistics
-        new_statistics = tf.maximum(new_statistics, _init_statistics * 1e-6)
+        new_statistics = tf.maximum(new_statistics, _init_statistics)
         # Update statistics
         statistics_updated_op = statistics.assign(new_statistics)
         tf.add_to_collection(tf.GraphKeys.UPDATE_OPS, statistics_updated_op)
