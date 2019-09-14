@@ -4,11 +4,11 @@
 
 ### Proposed GHM Function
 
-You can get the GHM weights by the get_ghm_weight() function in tf_ghm_loss.py
+You can get the GHM weights by the ***get_ghm_weight()*** function in ***tf_ghm_loss.py***.
 And use these weights to modify your loss term like theory in paper.
 The brief information of this function as below:
 
-```
+```python
 def get_ghm_weight(predict, target, valid_mask, bins=10, alpha=0.75,
                dtype=tf.float32, name='GHM_weight'):
     """ Get gradient Harmonized Weights.
@@ -43,7 +43,7 @@ The demo state like bellow:
 - prediction: [1., 0., 0.5, 0.]
 - target:     [1., 0., 0., 1.]
 
-You can find more details in tf_ghm_loss.py
+You can find more details in ***tf_ghm_loss.py***.
 
 #### Run
 ```
