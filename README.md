@@ -1,8 +1,12 @@
-# TensorFlow GHM loss weights
+# [TensorFlow GHM loss weights](https://github.com/peteryuX/tensorflow-GHM-loss)
 
-:fire: This is a simple tensorflow implementation of the loss weights in [Gradient Harmonized Single-stage Detector](https://arxiv.org/abs/1811.05181) published on AAAI 2019 (**Oral**). :fire:
+This is a simple tensorflow implementation of the loss weights in **Gradient Harmonized Single-stage Detector** published on **AAAI 2019 Oral**.
 
-### Proposed GHM Function
+Original Paper (Arxiv): [Link](https://arxiv.org/abs/1811.05181)
+
+****
+
+## Proposed GHM Function
 
 You can get the GHM weights by the ***get_ghm_weight()*** function in ***tf_ghm_loss.py***.
 And use these weights to modify your loss term like theory in paper.
@@ -37,26 +41,30 @@ def get_ghm_weight(predict, target, valid_mask, bins=10, alpha=0.75,
     """
 ```
 
-### Toy Demo :coffee:
+****
+
+## Toy Demo :coffee:
 
 The demo state like bellow:
 - prediction: [1., 0., 0.5, 0.]
 - target:     [1., 0., 0., 1.]
 
-You can find more details in ***tf_ghm_loss.py***.
+You can find more details in [tf_ghm_loss.py](https://github.com/peteryuX/tensorflow-GHM-loss/blob/master/tf_ghm_loss.py).
 
-#### Run
+### Run
 ```
 python tf_ghm_loss.py
 ```
 
-#### Output
+### Output
 ```
 update 1 times:  [[0.5        0.5        0.72727275 0.72727275]]
 update 100 times:  [array([[0.20000002, 0.20000002, 0.40000004, 0.40000004]], dtype=float32)]
 ```
 
-### Relevant materials :beer:
+****
+
+## Relevant materials :beer:
 
 - https://arxiv.org/abs/1811.05181
     - Gradient Harmonized Single-stage Detector
