@@ -3,6 +3,9 @@
 This is a simple tensorflow implementation of the loss weights in **Gradient Harmonized Single-stage Detector** published on **AAAI 2019 Oral**.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/peteryuX/tensorflow-GHM-loss/blob/master/notebooks/colab-github-demo.ipynb)
+![Star](https://img.shields.io/github/stars/peteryuX/tensorflow-GHM-loss)
+![Fork](https://img.shields.io/github/forks/peteryuX/tensorflow-GHM-loss)
+![License](https://img.shields.io/github/license/peteryuX/tensorflow-GHM-loss)
 
 Original Paper (Arxiv): [Link](https://arxiv.org/abs/1811.05181)
 
